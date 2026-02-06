@@ -14,11 +14,11 @@ namespace WebapiMq.Clients.Connections
         private IConnection? _connection;
         private readonly Task<IConnection> _connectionBuildingTask;
 
-        private readonly RabbitMqSettings _rabbitMqSettings;
+        public RabbitMqSettings RabbitMqSettings { get; }
 
         public ImageDataMqConnectionFactory(IOptions<RabbitMqSettings> rabbitMqSettingsOption)
         {
-            _rabbitMqSettings = rabbitMqSettingsOption.Value;
+            RabbitMqSettings = rabbitMqSettingsOption.Value;
             _connectionBuildingTask = InitAsync();
             _connectionBuildingTask.SafeFireAndForget(OnInitCompleted, OnInitError);
         }
@@ -38,11 +38,11 @@ namespace WebapiMq.Clients.Connections
         {
             ConnectionFactory = new ConnectionFactory
             {
-                HostName = _rabbitMqSettings.HostName,
-                Port = _rabbitMqSettings.Port,
-                UserName = _rabbitMqSettings.UserName,
-                Password = _rabbitMqSettings.Password,
-                VirtualHost = _rabbitMqSettings.VirtualHost ?? "/"
+                HostName = RabbitMqSettings.HostName,
+                Port = RabbitMqSettings.Port,
+                UserName = RabbitMqSettings.UserName,
+                Password = RabbitMqSettings.Password,
+                VirtualHost = RabbitMqSettings.VirtualHost ?? "/"
             };
 
             var connection = await ConnectionFactory.CreateConnectionAsync();

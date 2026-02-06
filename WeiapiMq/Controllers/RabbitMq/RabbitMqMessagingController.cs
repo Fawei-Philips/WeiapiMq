@@ -26,5 +26,13 @@ namespace WebapiMq.Controllers.RabbitMq
             await _messageService.SendImageMessageAsync(message.ImagePath, message.Message);
             return Ok();
         }
+
+        [HttpPost]
+        [Route("DoraemonTopicMessage")]
+        public async Task<IActionResult> SendTopicMessage([FromBody] DoraemonTopicMessage message)
+        {
+            await _messageService.SendTopicMessageAsync(message.Topic, message.ImagePath, message.Message);
+            return Ok();
+        }
     }
 }

@@ -2,7 +2,8 @@
 
 using RabbitMqSimpleClient.Clients;
 
-await new QueueModeConsumer().ConsumeAsync();
+//await new QueueModeConsumer().ConsumeAsync();
+await new TopicModeConsumer().ConsumeAsync();
 
 
 Console.ReadLine();
