@@ -1,0 +1,10 @@
+# 安装依赖
+sudo apt install -y apt-transport-https ca-certificates software-properties-common
+# 添加微软包源
+wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+# 安装 .NET 8 SDK
+sudo apt update && sudo apt install -y dotnet-sdk-8.0
+# 验证安装
+dotnet --version  # 输出 8.0.x 即成功
