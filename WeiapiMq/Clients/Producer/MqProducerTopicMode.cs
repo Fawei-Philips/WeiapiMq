@@ -5,10 +5,10 @@ using System.Text;
 using System.Text.Json;
 using Utils.Ioc;
 using Utils.Tasking;
-using WebapiMq.Clients.Connections;
-using WebapiMq.Model;
+using service.messaging.Clients.Connections;
+using service.messaging.Model;
 
-namespace WebapiMq.Clients.Producer
+namespace service.messaging.Clients.Producer
 {
     [Register(ServiceType = typeof(IRabbitMqProducer<DoraemonTopicMessage>), Key = Constants.Ioc_RabbitMq_TopicMode, Lifetime = Lifetime.Singleton)]
     public class MqProducerTopicMode : IRabbitMqProducer<DoraemonTopicMessage>

@@ -1,9 +1,9 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
-using WebapiMq.Model;
-using WebapiMq.Services;
+using service.messaging.Model;
+using service.messaging.Services;
 
-namespace WebapiMq.Controllers.RabbitMq
+namespace service.messaging.Controllers.RabbitMq
 {
     [ApiController]
     [Route("api/[controller]")]

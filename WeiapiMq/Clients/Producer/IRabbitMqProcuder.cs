@@ -1,4 +1,4 @@
-﻿namespace WebapiMq.Clients.Producer
+﻿namespace service.messaging.Clients.Producer
 {
     public interface IRabbitMqProducer<Payload> where Payload : class
     {

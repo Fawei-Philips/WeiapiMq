@@ -1,7 +1,7 @@
 ﻿using RabbitMQ.Client;
-using WebapiMq.Configurations;
+using service.messaging.Configurations;
 
-namespace WebapiMq.Clients.Connections
+namespace service.messaging.Clients.Connections
 {
     public interface IDoraemonMqConnectionFactory
     {

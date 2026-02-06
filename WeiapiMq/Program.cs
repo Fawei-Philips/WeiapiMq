@@ -2,7 +2,7 @@ using Logging;
 using NetUtils.Aspnet.Configurations;
 using NetUtils.Aspnet.Configurations.Swagger;
 using NetUtils.Aspnet.Filters;
-using WebapiMq.Configurations;
+using service.messaging.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 

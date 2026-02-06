@@ -6,11 +6,11 @@ using System.Text.Json;
 using System.Threading.Channels;
 using Utils.Ioc;
 using Utils.Tasking;
-using WebapiMq.Clients.Connections;
-using WebapiMq.Configurations;
-using WebapiMq.Model;
+using service.messaging.Clients.Connections;
+using service.messaging.Configurations;
+using service.messaging.Model;
 
-namespace WebapiMq.Clients.Producer
+namespace service.messaging.Clients.Producer
 {
     [Register(ServiceType = typeof(IRabbitMqProducer<DoraemonMessage>), Key = Constants.Ioc_RabbitMq_QueueMode, Lifetime = Lifetime.Singleton)]
     public class MqProducerQueueMode : IRabbitMqProducer<DoraemonMessage>

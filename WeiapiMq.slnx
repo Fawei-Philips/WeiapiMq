@@ -3,5 +3,5 @@
     <File Path=".editorconfig" />
   </Folder>
   <Project Path="RabbitMqSimpleClient/RabbitMqSimpleClient.csproj" Id="f0d11946-43b5-417a-8448-49157dee3d78" />
-  <Project Path="WeiapiMq/WebapiMq.csproj" />
+  <Project Path="WeiapiMq/service.messaging.csproj" />
 </Solution>

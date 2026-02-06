@@ -1,8 +1,8 @@
 ﻿using Utils.Ioc;
-using WebapiMq.Clients.Producer;
-using WebapiMq.Model;
+using service.messaging.Clients.Producer;
+using service.messaging.Model;
 
-namespace WebapiMq.Services
+namespace service.messaging.Services
 {
     [Register(ServiceType = typeof(IDoraemonMessageService))]
     public class DoraemonMessageService : IDoraemonMessageService

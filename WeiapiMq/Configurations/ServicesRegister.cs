@@ -1,7 +1,7 @@
 ﻿using NetUtils.Aspnet.Configurations;
 using RabbitMQ.Client;
 
-namespace WebapiMq.Configurations
+namespace service.messaging.Configurations
 {
     public static class ServicesRegister
     {

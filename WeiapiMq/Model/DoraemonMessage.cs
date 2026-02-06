@@ -1,4 +1,4 @@
-﻿namespace WebapiMq.Model
+﻿namespace service.messaging.Model
 {
     public record DoraemonMessage(string ImagePath, string Message);
 }

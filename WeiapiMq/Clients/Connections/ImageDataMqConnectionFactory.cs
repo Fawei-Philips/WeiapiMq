@@ -3,9 +3,9 @@ using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using Utils.Ioc;
 using Utils.Tasking;
-using WebapiMq.Configurations;
+using service.messaging.Configurations;
 
-namespace WebapiMq.Clients.Connections
+namespace service.messaging.Clients.Connections
 {
     [Register(ServiceType = typeof(IDoraemonMqConnectionFactory), Lifetime = Lifetime.Singleton, Key = Constants.Ioc_RabbitMq_Conn_ImageData)]
     public class ImageDataMqConnectionFactory : IDoraemonMqConnectionFactory

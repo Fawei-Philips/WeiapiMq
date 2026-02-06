@@ -1,4 +1,4 @@
-﻿namespace WebapiMq
+﻿namespace service.messaging
 {
     public class Constants
     {

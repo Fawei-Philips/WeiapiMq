@@ -1,4 +1,4 @@
-﻿namespace WebapiMq.Services
+﻿namespace service.messaging.Services
 {
     public interface IDoraemonMessageService
     {

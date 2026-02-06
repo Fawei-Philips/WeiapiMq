@@ -1,4 +1,4 @@
-﻿namespace WebapiMq.Configurations
+﻿namespace service.messaging.Configurations
 {
     public record RabbitMqSettings
     {
