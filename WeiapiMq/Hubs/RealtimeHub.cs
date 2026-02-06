@@ -1,20 +1,25 @@
 ﻿using System.Text.RegularExpressions;
+using Logging;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Options;
+using service.messaging.Configurations;
 
 namespace service.messaging.Hubs
 {
-    public class RealtimeHub : Hub
+    public class RealtimeHub(IOptions<SignalRSettings> signalRSettings) : Hub
     {
+
+        private readonly SignalRSettings _signalRSettings = signalRSettings.Value;
+
         /// <summary>
         /// Client connected
         /// </summary>
         public override async Task OnConnectedAsync()
         {
             var connectionId = Context.ConnectionId;
-            _logger.LogInformation("客户端 {ConnectionId} 已连接SignalR", connectionId);
+            Log4Logger.Logger.Info($"Client [{connectionId}] connected to SignalR");
 
-            // 可选：将连接ID加入默认组（方便按组推送）
-            await Groups.AddToGroupAsync(connectionId, "DefaultGroup");
+            await Groups.AddToGroupAsync(connectionId, _signalRSettings.Group);
 
             await base.OnConnectedAsync();
         }
@@ -27,15 +32,14 @@ namespace service.messaging.Hubs
             var connectionId = Context.ConnectionId;
             if (exception != null)
             {
-                _logger.LogError(exception, "客户端 {ConnectionId} 异常断开", connectionId);
+                Log4Logger.Logger.Error($"Client [{connectionId}] disconnected from SignalR", exception);
             }
             else
             {
-                _logger.LogInformation("客户端 {ConnectionId} 正常断开", connectionId);
+                Log4Logger.Logger.Info($"Client [{connectionId}] disconnected from SignalR");
             }
 
-            // 可选：移除分组
-            await Groups.RemoveFromGroupAsync(connectionId, "DefaultGroup");
+            await Groups.RemoveFromGroupAsync(connectionId, _signalRSettings.Group);
 
             await base.OnDisconnectedAsync(exception);
         }

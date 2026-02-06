@@ -26,6 +26,7 @@ namespace service.messaging.Configurations
             private void Configurations()
             {
                 builder.Services.Configure<RabbitMqSettings>(builder.Configuration.GetSection(Constants.RabbitMqSettings));
+                builder.Services.Configure<SignalRSettings>(builder.Configuration.GetSection(Constants.SignalRSettings));
             }
         }
     }
