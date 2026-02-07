@@ -6,7 +6,7 @@ using service.messaging.Configurations;
 
 namespace service.messaging.Hubs
 {
-    public class RealtimeHub(IOptions<SignalRSettings> signalRSettings) : Hub
+    public class SignalRHub(IOptions<SignalRSettings> signalRSettings) : Hub
     {
 
         private readonly SignalRSettings _signalRSettings = signalRSettings.Value;
